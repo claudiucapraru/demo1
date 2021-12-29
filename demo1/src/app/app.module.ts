@@ -8,12 +8,14 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
 
+import { TableResultComponent } from './table-result/table-result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    HomeComponent
+    HomeComponent,
+    TableResultComponent
   ],
   imports: [
     BrowserModule,
