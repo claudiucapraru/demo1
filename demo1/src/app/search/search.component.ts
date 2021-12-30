@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HomeService } from '../service/home.service';
 
 @Component({
   selector: 'app-search',
@@ -8,24 +8,62 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  form!: FormGroup;
+  searchForm!: FormGroup;
+  adressType=0;
+  submitted=false;
+
+  @ViewChildren('checkboxes')
+  checkboxes!: QueryList<ElementRef>;
   constructor(
     private formbuilder: FormBuilder,
-    private http: HttpClient
+    private homeService: HomeService
 
   ) { }
 
   ngOnInit(): void {
-    this.form = this.formbuilder.group({
-      search: ['', [Validators.required]],
+    this.searchForm = this.formbuilder.group({
+      search: ['sdaads', [Validators.required]],
     });
 
 
 
   }
 
+  //Note: 1-> primary, 2->secondary, 0-> both
+
+  setBoth($event: any){
+    this.checkboxes["_results"][0].nativeElement.checked=false;
+    this.checkboxes["_results"][1].nativeElement.checked=false;
+    this.adressType=0;
+
+  }
+  setPrimary(event: any){
+    this.checkboxes["_results"][1].nativeElement.checked=false;
+    this.checkboxes["_results"][2].nativeElement.checked=false;
+    this.adressType=1;
+
+  }
+
+  setSecondary($event: any){
+    this.checkboxes["_results"][0].nativeElement.checked=false;
+    this.checkboxes["_results"][2].nativeElement.checked=false;
+    this.adressType=2;
+  }
+
   searchData() {
-      console.log("here")
+    this.submitted=true;
+    if (this.searchForm.invalid) {
+      return;
+    }
+    const info = {
+      "textInput": this.searchForm.get("search")?.value,
+      "addressType": this.adressType,
+      "page": 0,
+      "limit": 3
+    }
+    this.homeService.sendInfo(info).subscribe(valoare => console.log(valoare));
+    this.searchForm.reset()
+    
 
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from '../service/home.service';
+
 
 @Component({
   selector: 'app-home',
@@ -8,15 +8,9 @@ import { HomeService } from '../service/home.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private homeService: HomeService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    var info = {
-      "textInput": "George",
-      "addressType": "both",
-      "page": 0,
-      "limit": 3
-    }
-    this.homeService.sendInfo(info).subscribe(valoare => console.log(valoare));
+
   }
 }

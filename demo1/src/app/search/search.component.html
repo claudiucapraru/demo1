@@ -4,37 +4,36 @@
 
 <div class="search-bar">
 
-  <div [formGroup]="form">
+  <form [formGroup]="searchForm" >
     <div class="form-group">
-      <!-- <label>USER</label> -->
 
       <input type="text" class="form-control" formControlName="search" class="search" placeholder="Search ... " />
-      <!-- <div *ngIf="form.controls.search.errors.required" class="text-danger">Please enter the username</div> -->
+
+      <div *ngIf="submitted && searchForm.controls.search.errors">
+        <div *ngIf="searchForm.controls.search.errors.required" style="color: red;">Please enter data</div>
+      </div>
     </div>
 
     <label class="custom_checkbox">
-      <input type="checkbox" class="form-check-input" [disabled]="" />
-      <em></em>
+      <input #checkboxes type="checkbox" class="form-check-input"  [value]="0" (change)="setPrimary($event)" />
       <span translate>Primary</span>
     </label>
 
     <label class="custom_checkbox">
-      <input type="checkbox" class="form-check-input"  />
-      <em></em>
+      <input #checkboxes type="checkbox"  class="form-check-input" [value]="1"  (change)="setSecondary($event)" />
       <span translate>Secundary</span>
     </label>
 
     <label class="custom_checkbox">
-      <input type="checkbox" class="form-check-input"  />
-      <em></em>
+      <input #checkboxes type="checkbox" class="form-check-input" [value]="2" (change)="setBoth($event)"/>
       <span translate>Both</span>
     </label>
 
-    <div class="button-search" style="text-align: end;">
-      <input (click)="searchData()" type="button" value="SAVE" />
+    <div class="button-search" style="text-align: end">
+      <input (click)="searchData()" style="text-align: center ;margin-right: 50px; height: 50px; width: 100px; "type="button" value="Search" />
 
     </div>
 
-  </div>
+  </form>
 
 </div>
