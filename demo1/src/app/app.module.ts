@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HttpClientModule } from "@angular/common/http";
 import { TableResultComponent } from './table-result/table-result.component';
 
 @NgModule({
@@ -18,7 +19,8 @@ import { TableResultComponent } from './table-result/table-result.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
