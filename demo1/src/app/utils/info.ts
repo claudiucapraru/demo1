@@ -1,6 +1,6 @@
 export interface Info {
     textInput: string,
-    addressType: string,
+    addressType: number,
     page: number,
     limit: number
   }
