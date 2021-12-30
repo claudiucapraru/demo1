@@ -1,1 +1,40 @@
-<p>search works!</p>
+<div class="red-bar">
+  <p style="text-align: center; color: white;">User-Adress search pannel</p>
+</div>
+
+<div class="search-bar">
+
+  <div [formGroup]="form">
+    <div class="form-group">
+      <!-- <label>USER</label> -->
+
+      <input type="text" class="form-control" formControlName="search" class="search" placeholder="Search ... " />
+      <!-- <div *ngIf="form.controls.search.errors.required" class="text-danger">Please enter the username</div> -->
+    </div>
+
+    <label class="custom_checkbox">
+      <input type="checkbox" class="form-check-input" [disabled]="" />
+      <em></em>
+      <span translate>Primary</span>
+    </label>
+
+    <label class="custom_checkbox">
+      <input type="checkbox" class="form-check-input"  />
+      <em></em>
+      <span translate>Secundary</span>
+    </label>
+
+    <label class="custom_checkbox">
+      <input type="checkbox" class="form-check-input"  />
+      <em></em>
+      <span translate>Both</span>
+    </label>
+
+    <div class="button-search" style="text-align: end;">
+      <input (click)="searchData()" type="button" value="SAVE" />
+
+    </div>
+
+  </div>
+
+</div>
