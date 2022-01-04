@@ -12,8 +12,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     var info = {
-      "textInput": "George",
-      "addressType": "both",
+      "textInput": "bucharest",
+      "addressType": 0,
       "page": 0,
       "limit": 3
     }
