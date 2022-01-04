@@ -1,1 +1,27 @@
-<p>table-result works!</p>
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Sr. No</th>
+            <th>Address</th>
+            <th>Pincode</th>
+            <th>Country</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Address type</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor="let result of results.addressList">
+            <td>{{result.serialNo}}</td>
+            <td>{{result.address}}</td>
+            <td>{{result.pincode}}</td>
+            <td>{{result.country}}</td>
+            <td>{{result.state}}</td>
+            <td>{{result.city}}</td>
+            <td>{{result.addressType}}</td>
+        </tr>
+    </tbody>
+</table>

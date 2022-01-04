@@ -1,6 +1,6 @@
 import { Adress } from "./adress";
 
 export interface ResponseModel {
-adressList: Adress[],
+addressList: Adress[],
 totalRecordings: number
 }

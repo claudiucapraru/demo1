@@ -6,7 +6,7 @@ import { Info } from '../utils/info';
   providedIn: 'root'
 })
 export class HomeService {
-  readonly baseUrl = "https://9de9-86-124-152-45.ngrok.io/demo1/";
+  readonly baseUrl = "http://411e-79-112-77-245.ngrok.io/demo1/";
   readonly httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json",
